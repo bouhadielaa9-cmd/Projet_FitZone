@@ -1,0 +1,95 @@
+
+.products-section {
+  background: #f7f8f5;
+  min-height: 100vh;
+  padding: 50px 0 70px;
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.products-header h1 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #252a22;
+}
+
+.products-header h1 span {
+  color: #91ad45;
+}
+
+.products-header p {
+  color: #777;
+  margin-top: 10px;
+}
+
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #252a22;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 30px;
+  transition: 0.3s;
+}
+
+.back-home:hover {
+  color: #91ad45;
+  transform: translateX(-4px);
+}
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 20px;
+  max-width: 750px;
+  margin: 0 auto 45px;
+  flex-wrap: wrap;
+}
+
+.search-box {
+  flex: 1;
+  min-width: 230px;
+}
+
+.search-box label {
+  display: block;
+  font-weight: 600;
+  color: #252a22;
+  margin-bottom: 10px;
+}
+
+.input-group {
+  position: relative;
+}
+
+.input-group i {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #91ad45;
+  z-index: 2;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 13px 15px 13px 42px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #91ad45;
+  box-shadow: 0 0 0 3px rgba(145, 173, 69, 0.15);
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+}

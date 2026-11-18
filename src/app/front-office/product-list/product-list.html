@@ -1,0 +1,57 @@
+<div class="d-flex justify-content-between mb-4">
+
+    <a routerLink="/home" class="btn btn-outline-success">
+      <i class="bi bi-house"></i>
+      Back to Home
+    </a>
+    <a routerLink="/favorites" class="btn btn-outline-success">
+     <i class="bi bi-heart-fill"></i>
+      favorites
+    </a>
+  </div>
+<div class="search-container">
+  <div class="search-box">
+    <label>Product Name</label>
+    <div class="input-group">
+      <i class="bi bi-search"></i>
+      <input
+        type="text"
+        placeholder="Name starts with..."
+        [value]="searchName()"
+        [(ngModel)]="searchName">
+    </div>
+  </div>
+  <div class="search-box">
+    <label>Maximum Price (DT)</label>
+    <div class="input-group">
+      <i class="bi bi-currency-dollar"></i>
+      <input
+        type="number"
+        min="0"
+        placeholder="Enter maximum price..."
+        [value]="maxPrice() ?? ''"
+        [(ngModel)]="maxPrice"
+      >
+    </div>
+  </div>
+
+</div>
+
+Products
+<div class="row g-4">
+
+  @for (p of filteredProducts(); track p.id) {
+
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+      <app-product-item [product]="p" />
+    </div>
+
+  } @empty {
+    <div class="no-results">
+      <i class="bi bi-search"></i>
+      <h4>No products found</h4>
+      <p>Try changing your search criteria.</p>
+    </div>
+  }
+
+</div>

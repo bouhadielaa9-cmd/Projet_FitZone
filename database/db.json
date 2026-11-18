@@ -1,0 +1,213 @@
+
+{
+  "products": [
+    {
+      "id": "1",
+      "nom": "Legging Sport Femme",
+      "photo": "/images/gymwear.webp",
+      "prix": 89.9,
+      "enStock": true,
+      "dateAjout": "2026-11-01",
+      "categorie": "Gymwear",
+      "description": "High-waisted leggings, stretchy and comfortable for fitness and strength training.",
+     "commentaires": [
+  {
+    "id": "c1",
+    "nom": "Sara",
+    "message": "Very comfortable and excellent quality!",
+    "note": 5,
+    "date": "2026-11-01"
+  },
+  {
+    "id": "c2",
+    "nom": "Emma",
+    "message": "Great fit and very comfortable during workouts.",
+    "note": 4,
+    "date": "2026-11-03"
+  }
+],
+      "tailles": ["S", "M", "L", "XL"],
+      "couleurs": ["Noir", "Rose", "Gris"]
+    },
+    {
+      "id": "2",
+      "nom": "Brassiere Sport",
+      "photo": "/images/brassier.webp",
+      "prix": 59.9,
+      "enStock": true,
+      "dateAjout": "2026-11-01",
+      "categorie": "Gymwear",
+      "description": "Sports bra offering comfortable support during workouts.",
+     "commentaires": [
+  {
+    "id": "c3",
+    "nom": "Lina",
+    "message": "Excellent support and very comfortable to wear.",
+    "note": 5,
+    "date": "2026-11-02"
+  },
+  {
+    "id": "c4",
+    "nom": "Maya",
+    "message": "Good quality, but I would prefer more colors.",
+    "note": 4,
+    "date": "2026-11-04"
+  }
+],
+      "tailles": ["S", "M", "L"],
+      "couleurs": ["Noir", "Blanc", "Rose"]
+    },
+    {
+      "id": "3",
+      "nom": "T-shirt Oversize Sport",
+      "photo": "/images/tshirt.webp",
+      "prix": 45,
+      "enStock": true,
+      "dateAjout": "2026-11-01",
+      "categorie": "Gymwear",
+      "description": "Lightweight and breathable oversized T-shirt for workout sessions.",
+      "commentaires": [
+  {
+    "id": "c5",
+    "nom": "Alex",
+    "message": "Lightweight fabric and a really nice oversized fit.",
+    "note": 5,
+    "date": "2026-11-03"
+  }
+],
+      "tailles": ["S", "M", "L", "XL"],
+      "couleurs": ["Blanc", "Noir"]
+    },
+    {
+      "id": "4",
+      "nom": "Halteres 5 kg",
+      "photo": "/images/dumbbells.webp",
+      "prix": 65,
+      "enStock": true,
+      "dateAjout": "2026-11-01",
+      "categorie": "Gym Accessories",
+      "description": "Pair of 5 kg dumbbells for strength training exercises.",
+      "commentaires": [
+  {
+    "id": "c6",
+    "nom": "Daniel",
+    "message": "Perfect for home workouts. Very solid and easy to use.",
+    "note": 5,
+    "date": "2026-11-04"
+  }
+],
+      "poids": 5
+    },
+    {
+      "id": "5",
+      "nom": "Resistance Bands",
+      "photo": "/images/resistance-bands.webp",
+      "prix": 29.9,
+      "enStock": true,
+      "dateAjout": "2026-11-01",
+      "categorie": "Gym Accessories",
+      "description": "Set of resistance bands for resistance training and glute exercises.",
+      "commentaires": [
+  {
+    "id": "c7",
+    "nom": "Sophie",
+    "message": "Great resistance bands, especially for glute exercises.",
+    "note": 5,
+    "date": "2026-11-05"
+  }
+],
+      "couleurs": ["Rose", "Violet", "Bleu"]
+    },
+    {
+      "id": "6",
+      "nom": "Gants de Musculation",
+      "photo": "/images/gym-gloves.webp",
+      "prix": 34.9,
+      "enStock": false,
+      "dateAjout": "2026-11-01",
+      "categorie": "Gym Accessories",
+      "description": "Protective gloves designed to improve grip during workouts.",
+      "commentaires": [],
+      "tailles": ["S", "M", "L"]
+    },
+    {
+      "id": "7",
+      "nom": "Proteine Whey",
+      "photo": "/images/whey.webp",
+      "prix": 189.9,
+      "enStock": true,
+      "dateAjout": "2026-11-01",
+      "categorie": "Sports Nutrition",
+      "description": "Protein powder to help supplement your daily protein intake.",
+      "commentaires": [
+  {
+    "id": "c9",
+    "nom": "Olivia",
+    "message": "Mixes easily and has a great taste.",
+    "note": 5,
+    "date": "2026-11-06"
+  }
+],
+      "poids": 1
+    },
+    {
+      "id": "8",
+      "nom": "Tapis de Fitness",
+      "photo": "/images/fitness-mat.avif",
+      "prix": 49.9,
+      "enStock": true,
+      "dateAjout": "2026-11-01",
+      "categorie": "Fitness Equipment",
+      "description": "Non-slip mat for yoga, abdominal exercises, and floor workouts.",
+      "commentaires": [
+  {
+    "id": "c10",
+    "nom": "Emma",
+    "message": "Comfortable, non-slip, and perfect for yoga.",
+    "note": 5,
+    "date": "2026-11-06"
+  }
+],
+      "couleurs": ["Bleu", "Violet", "Noir"]
+    },
+    {
+      "id": "9",
+      "nom": "Sac de Sport",
+      "photo": "/images/gym-bag.webp",
+      "prix": 79.9,
+      "enStock": true,
+      "dateAjout": "2026-11-01",
+      "categorie": "Gym Bags & Bottles",
+      "description": "Spacious sports bag with multiple compartments for carrying your workout essentials.",
+      "commentaires": [],
+      "couleurs": ["Noir", "Rose", "Gris"]
+    },
+    {
+      "id": "10",
+      "nom": "Shaker 700 ml",
+      "photo": "/images/shaker.webp",
+      "prix": 24.9,
+      "enStock": false,
+      "dateAjout": "2026-11-01",
+      "categorie": "Gym Bags & Bottles",
+      "description": "Convenient shaker bottle for preparing protein drinks.",
+     "commentaires": [
+  {
+    "id": "c12",
+    "nom": "Noah",
+    "message": "Practical shaker bottle, easy to clean and carry.",
+    "note": 5,
+    "date": "2026-11-07"
+  }
+],
+      "couleurs": ["Noir", "Rose", "Blanc"]
+    }
+  ],
+  "admins": [
+    {
+      "id": "1",
+      "email": "admin@fitzone.com",
+      "password": "admin123"
+    }
+  ]
+}

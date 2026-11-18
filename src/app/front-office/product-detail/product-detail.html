@@ -1,0 +1,84 @@
+<div class="detail-section">
+  <div class="container">
+
+    <a routerLink="/products" class="back-link">
+      <i class="bi bi-arrow-left"></i>
+      Back to Products
+    </a>
+
+    @if (product(); as p) {
+
+      <div class="row g-5 align-items-center">
+
+        <div class="col-md-6">
+          <div class="detail-image">
+            <img [src]="p.photo" [alt]="p.nom">
+          </div>
+        </div>
+
+        <div class="col-md-6">
+
+          <span class="category">{{ p.categorie }}</span>
+
+          <h1>{{ p.nom }}</h1>
+
+          <h2 class="price">{{ p.prix }} DT</h2>
+
+          <p class="description">
+            {{ p.description }}
+          </p>
+
+          <p>
+            <strong>Availability:</strong>
+
+            @if (p.enStock) {
+              <span class="available">In Stock</span>
+            } @else {
+              <span class="unavailable">Out of Stock</span>
+            }
+          </p>
+
+          <p><strong>Date added:</strong> {{ p.dateAjout }}</p>
+
+          @if (p.tailles?.length) {
+            <p><strong>Sizes:</strong> {{ p.tailles?.join(', ') }}</p>
+          }
+
+          @if (p.couleurs?.length) {
+            <p><strong>Colors:</strong> {{ p.couleurs?.join(', ') }}</p>
+          }
+
+          @if (p.poids) {
+            <p><strong>Weight:</strong> {{ p.poids }} kg</p>
+          }
+
+        </div>
+      </div>
+
+      <div class="comments-section">
+        <h2>Customer Reviews</h2>
+
+        @for (c of p.commentaires; track c.id) {
+          <div class="comment-card">
+            <h5>{{ c.nom }}</h5>
+
+            <p class="rating">
+              {{ c.note }} / 5
+              <i class="bi bi-star-fill"></i>
+            </p>
+
+            <p>{{ c.message }}</p>
+            <small>{{ c.date }}</small>
+          </div>
+        } @empty {
+          <p>No comments yet.</p>
+        }
+
+      </div>
+
+    } @else {
+      <p>Loading product...</p>
+    }
+
+  </div>
+</div>
