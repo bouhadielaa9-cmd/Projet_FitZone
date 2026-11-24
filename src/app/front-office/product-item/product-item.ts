@@ -1,22 +1,19 @@
 import { Component, inject, input } from '@angular/core';
 import { Produit } from '../../models/produit';
 import { RouterLink } from '@angular/router';
-import { Favoris } from '../../services/favoris';
+import { PrixPipe } from '../../pipes/prix-pipe';
+import { Product } from '../../services/product';
 @Component({
   selector: 'app-product-item',
-  imports: [RouterLink],
+  imports: [RouterLink,PrixPipe],
   templateUrl: './product-item.html',
   styleUrl: './product-item.css',
 })
 export class ProductItem {
   product = input.required<Produit>();
-  private favorisService = inject(Favoris);
+private productService = inject(Product);
 
-  toggleFavori(): void {
-    this.favorisService.toggleFavori(this.product().id);
-  }
-
-  isFavori(): boolean {
-    return this.favorisService.isFavori(this.product().id);
-  }
+changerFavori() {
+  this.productService.changerFavori(this.product()).subscribe();
+}
 }

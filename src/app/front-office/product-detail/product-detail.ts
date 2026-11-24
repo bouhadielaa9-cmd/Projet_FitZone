@@ -3,9 +3,10 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Product } from '../../services/product';
 import { Produit } from '../../models/produit';
 import { JsonPipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-product-detail',
-  imports: [RouterLink,JsonPipe],
+  imports: [RouterLink,DatePipe],
   templateUrl: './product-detail.html',
   styleUrl: './product-detail.css',
 })

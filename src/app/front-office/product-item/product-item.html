@@ -10,19 +10,18 @@
     <p>{{ product().description }}</p>
 
     <span class="product-price">
-      {{ product().prix }} DT
+     {{ product().prix | prix }}
     </span>
    <a [routerLink]="['/products', product().id]" class="details-btn">
   View Details
   <i class="bi bi-arrow-right"></i>
 </a>
-<button
-  class="favorite-btn"
-  (click)="toggleFavori()"
-  [class.active]="isFavori()">
-
-  <i [class]="isFavori()?'bi bi-heart-fill' : 'bi bi-heart'"></i>
-
+<button (click)="changerFavori()">
+  @if (product().favori) {
+    <i class="bi bi-heart-fill"></i>
+  } @else {
+    <i class="bi bi-heart"></i>
+  }
 </button>
   </div>
 

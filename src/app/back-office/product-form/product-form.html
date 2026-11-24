@@ -1,1 +1,129 @@
-<p>product-form works!</p>
+   
+<div class="container management-container py-5 mt-5">
+<a routerLink="/productmanagement" class="back-link">
+  <i class="bi bi-arrow-left"></i>
+  Back to Management
+</a>
+  <div class="card product-form-card shadow">
+
+    <div class="form-header">
+      <h3><i class="bi bi-plus-circle me-2"></i>ADD NEW PRODUCT</h3>
+      <p class="mb-0">Complete the information to add a product to FitZone.</p>
+    </div>
+
+    <div class="card-body p-4">
+
+      <form [formRoot]="produitForm" (submit)="onSubmit()">
+
+        <div class="row">
+
+          <!-- Nom -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Product name</label>
+            <input type="text" class="form-control"
+              [formField]="produitForm.nom"
+              placeholder="Enter product name">
+          </div>
+
+          <!-- Prix -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Price (DT)</label>
+            <input type="number" class="form-control"
+              [formField]="produitForm.prix"
+              placeholder="Enter price">
+          </div>
+
+          <!-- Date -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Date added</label>
+            <input type="date" class="form-control"
+              [formField]="produitForm.dateAjout">
+          </div>
+
+          <!-- Photo -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Product image URL</label>
+            <input type="text" class="form-control"
+              [formField]="produitForm.photo"
+              placeholder="Paste image URL">
+          </div>
+
+          <!-- Category -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Category</label>
+            <select class="form-select"
+              [formField]="produitForm.categorie">
+
+              <option value="">Choose category</option>
+
+              @for(c of categorie; track $index) {
+                <option [value]="c">{{c}}</option>
+              }
+
+            </select>
+          </div>
+
+          <!-- Description -->
+          <div class="col-md-6 mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control"
+              [formField]="produitForm.description"
+              placeholder="Product description"
+              rows="2"></textarea>
+          </div>
+
+        </div>
+
+        <hr class="form-divider">
+
+        <!-- Sizes -->
+        <div class="mb-4">
+          <h5 class="form-section-title">
+            <i class="bi bi-rulers me-2"></i>Available sizes
+          </h5><button type="button" class="btn btn-sm btn-secondary" (click)="addsizes()">+</button>
+
+          @for(t of produitForm.tailles; track $index) {
+            <div class="mb-3">
+              <input type="text" class="form-control"
+                [formField]="t"
+                placeholder="Enter size">
+            </div>
+          }
+        </div>
+
+        <hr class="form-divider">
+
+        <!-- Colors -->
+        <div class="mb-4">
+          <h5 class="form-section-title">
+            <i class="bi bi-palette me-2"></i>Available colors
+          </h5>
+
+          @for(c of produitForm.couleurs; track $index) {
+            <div class="mb-3">
+              <input type="text" class="form-control"
+                [formField]="c"
+                placeholder="Enter color">
+            </div>
+          }
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-end gap-3 mt-4">
+
+          <button type="reset" class="btn btn-cancel">
+            Cancel
+          </button>
+
+          <button type="submit" class="btn btn-orange">
+            <i class="bi bi-plus-lg me-2"></i>
+            Add product
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

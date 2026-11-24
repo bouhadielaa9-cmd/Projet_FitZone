@@ -5,6 +5,8 @@ export interface Produit {
   photo: string;
   prix: number;
   enStock: boolean;
+  deleted: boolean;
+  favori: boolean;
   dateAjout: string;
   categorie: string;
   description: string;

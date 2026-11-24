@@ -38,7 +38,7 @@
             }
           </p>
 
-          <p><strong>Date added:</strong> {{ p.dateAjout }}</p>
+          <p><strong>Date added:</strong> {{ p.dateAjout | date:'dd/MM/yyyy' }}</p>
 
           @if (p.tailles?.length) {
             <p><strong>Sizes:</strong> {{ p.tailles?.join(', ') }}</p>

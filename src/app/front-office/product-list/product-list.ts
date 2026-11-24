@@ -11,34 +11,22 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductList implements OnInit {
   private readonly productsservice = inject(Product);
-  products = this.productsservice.products;
-  // Critère 1 : nom
-  searchName = signal('');
-  // Critère 2 : prix maximum
-  maxPrice=signal<number | null>(null);
-  // Recherche avec les deux critères
-  filteredProducts = computed(() => {
-    return this.products().filter(p => {
-      const nameMatch =
-        p.nom.toLowerCase().startsWith(
-          this.searchName().toLowerCase().trim()
-        );
-      const priceMatch =
-        this.maxPrice() === null ||
-        p.prix < this.maxPrice()!;
-
-      return nameMatch && priceMatch;
-    });
-
-  });
-
+ 
+products = this.productsservice.products;
+category=signal('');
+maxPrice=signal<number|null>(null);
+filteredProducts = computed(() => {
+  const categoryValue=this.category().trim().toLowerCase();
+  const priceValue=this.maxPrice();
+  return this.products().filter(p =>
+    p.categorie.toLowerCase().includes(categoryValue) &&
+    (priceValue === null || p.prix <= priceValue)&& p.deleted===false
+  );
+});
   ngOnInit(): void {
     this.productsservice.getproduit().subscribe();
-   
   }
   updateMaxPrice(value: string): void {
   this.maxPrice.set(value === '' ? null : Number(value));
 }
-
-
 }
