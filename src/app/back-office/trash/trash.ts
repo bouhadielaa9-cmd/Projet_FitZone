@@ -17,20 +17,15 @@ export class Trash implements OnInit {
   ngOnInit(): void {
     this.productservice.getproduit().subscribe();
   }
-
-  // Afficher seulement les produits supprimés
   produitsSupprimes = computed(() => {
     return this.productservice.products().filter(p => p.deleted === true);
   });
 
-  // Restaurer un produit
   restaurer(p: Produit) {
     this.productservice.restaurerproduit(p).subscribe(() => {
       this.productservice.getproduit().subscribe();
     });
   }
-
-  // Supprimer définitivement
   supprimerDefinitivement(p: Produit) {
     this.productservice.supprimerDefinitivement(p.id).subscribe(() => {
       this.productservice.getproduit().subscribe();

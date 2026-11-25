@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Home } from './front-office/home/home';
 
 @Component({
   imports: [RouterOutlet],

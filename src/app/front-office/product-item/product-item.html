@@ -1,28 +1,49 @@
+
 <div class="product-card">
 
   <div class="product-image">
     <img [src]="product().photo" [alt]="product().nom">
+
+    <span class="product-category">
+      {{ product().categorie }}
+    </span>
   </div>
 
   <div class="product-info">
+
     <h5>{{ product().nom }}</h5>
 
-    <p>{{ product().description }}</p>
+    <p class="product-description">
+      {{ product().description }}
+    </p>
 
     <span class="product-price">
-     {{ product().prix | prix }}
+      {{ product().prix | prix }}
     </span>
-   <a [routerLink]="['/products', product().id]" class="details-btn">
-  View Details
-  <i class="bi bi-arrow-right"></i>
-</a>
-<button (click)="changerFavori()">
-  @if (product().favori) {
-    <i class="bi bi-heart-fill"></i>
-  } @else {
-    <i class="bi bi-heart"></i>
-  }
-</button>
+
+    <div class="product-actions">
+
+      <a
+        [routerLink]="['/products', product().id]"
+        class="details-btn">
+        View Details
+        <i class="bi bi-arrow-right"></i>
+      </a>
+
+      <button
+        class="favorite-btn"
+        [class.active]="product().favori"
+        (click)="changerFavori()"
+        >
+<i class="bi"
+   [class.bi-heart-fill]="product().favori"
+   [class.bi-heart]="!product().favori">
+</i>
+
+      </button>
+
+    </div>
+
   </div>
 
 </div>

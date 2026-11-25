@@ -1,43 +1,59 @@
-
-
-
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
     <a class="navbar-brand fw-bold fs-3" routerLink="/home">
-      FIT<span>ZONE-BYELAA</span>
+      FIT<span>ZONE</span><small> BY ELAA</small>
     </a>
 
     <button class="navbar-toggler" type="button"
-      data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+      data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+      aria-controls="navbarMenu" aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarMenu">
       <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4">
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/home">Home</a>
+          <a class="nav-link" routerLink="/home"
+             routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            Home
+          </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" routerLink="/products">Products</a>
+          <a class="nav-link" routerLink="/products"
+             routerLinkActive="active">
+            Products
+          </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" routerLink="/about">About</a>
+          <a class="nav-link" routerLink="/about"
+             routerLinkActive="active">
+            About
+          </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" routerLink="/auth">Admin Registration</a>
+          <a class="nav-link admin-link" routerLink="/auth">
+            <i class="bi bi-person-lock me-1"></i>
+            Administrator Area
+          </a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- HERO SECTION -->
+
 <section class="hero">
   <div class="container">
-    <div class="row align-items-center min-vh-100">
+    <div class="row align-items-center hero-row">
       <div class="col-lg-7 hero-content">
-        <p class="hero-subtitle">WELCOME TO FITZONE</p>
+
+        <div class="hero-tag">
+          <span></span> WELCOME TO FITZONE
+        </div>
 
         <h1>
           BUILD YOUR<br>
@@ -46,42 +62,78 @@
 
         <p class="hero-description">
           Your fitness journey starts here.
-          Discover quality sports equipment and fitness essentials
-          designed to help you reach your goals.
+          Discover premium sports equipment and fitness essentials
+          designed to help you reach your goals and push your limits.
         </p>
 
-        <a routerLink="/products" class="btn btn-orange btn-lg mt-3">
-          Explore Products <i class="bi bi-arrow-right ms-2"></i>
-        </a>
+        <div class="hero-buttons">
+          <a routerLink="/products" class="btn btn-orange btn-lg">
+            Explore Products
+            <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+
+          <a routerLink="/about" class="hero-secondary-link">
+            Discover FitZone <i class="bi bi-arrow-up-right"></i>
+          </a>
+        </div>
+
+        <div class="hero-note">
+          <i class="bi bi-lightning-charge-fill"></i>
+          TRAIN HARD. STAY STRONG.
+        </div>
+
       </div>
     </div>
   </div>
+
+  <div class="hero-scroll">
+    <span></span>
+    SCROLL TO DISCOVER
+  </div>
 </section>
 
-<!-- INTRODUCTION -->
-<section class="intro-section py-5">
-  <div class="container py-5">
+<section class="intro-section">
+  <div class="container">
     <div class="row align-items-center g-5">
 
       <div class="col-lg-6">
-        <img src="/images/fitness-hero.jpg.jpg" alt="Fitness"
-             class="intro-image">
+        <div class="intro-image-wrapper">
+          <img src="/images/fitness-hero.jpg.jpg"
+               alt="Fitness training"
+               class="intro-image">
+
+          <div class="image-label">
+            <i class="bi bi-trophy-fill"></i>
+            <div>
+              <strong>YOUR GOALS</strong>
+              <small>YOUR JOURNEY</small>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="col-lg-6">
+      <div class="col-lg-6 intro-content">
         <p class="section-subtitle">ABOUT FITZONE</p>
-        <h2>MORE THAN A STORE.<br>
+
+        <h2>
+          MORE THAN A STORE.<br>
           <span>A FITNESS LIFESTYLE.</span>
         </h2>
 
         <p class="intro-text">
           At FitZone, we believe that every fitness journey deserves
-          the right equipment and support.
-          We bring you quality products to make every workout count.
+          the right equipment and support. We bring you quality
+          products to make every workout count.
         </p>
 
+        <div class="intro-points">
+          <p><i class="bi bi-check-circle-fill"></i> Quality fitness equipment</p>
+          <p><i class="bi bi-check-circle-fill"></i> Products for every fitness goal</p>
+          <p><i class="bi bi-check-circle-fill"></i> Your motivation starts here</p>
+        </div>
+
         <a routerLink="/about" class="btn btn-outline-orange mt-3">
-          Discover More
+          Discover More <i class="bi bi-arrow-right ms-2"></i>
         </a>
       </div>
 
@@ -89,36 +141,61 @@
   </div>
 </section>
 
-<!-- WHY CHOOSE US -->
-<section class="features-section py-5">
-  <div class="container py-5 text-center">
 
-    <p class="section-subtitle">WHY FITZONE?</p>
-    <h2 class="section-title mb-5">YOUR FITNESS. OUR PRIORITY.</h2>
+<section class="features-section">
+  <div class="container">
+
+    <div class="section-heading text-center">
+      <p class="section-subtitle">WHY FITZONE?</p>
+      <h2 class="section-title">
+        YOUR FITNESS. <span>OUR PRIORITY.</span>
+      </h2>
+      <p class="section-description">
+        Everything you need to make every training session count.
+      </p>
+    </div>
 
     <div class="row g-4">
 
       <div class="col-md-4">
         <div class="feature-card">
-          <i class="bi bi-award"></i>
+          <div class="feature-icon">
+            <i class="bi bi-award"></i>
+          </div>
           <h4>Quality Products</h4>
-          <p>Carefully selected products for your training needs.</p>
+          <p>
+            Carefully selected fitness products designed
+            to support your training needs.
+          </p>
+          <span class="feature-number">01</span>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="feature-card">
-          <i class="bi bi-lightning-charge"></i>
+          <div class="feature-icon">
+            <i class="bi bi-lightning-charge"></i>
+          </div>
           <h4>Better Performance</h4>
-          <p>Everything you need to push your limits.</p>
+          <p>
+            Find the equipment you need to challenge
+            yourself and push your limits.
+          </p>
+          <span class="feature-number">02</span>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="feature-card">
-          <i class="bi bi-heart-pulse"></i>
+          <div class="feature-icon">
+            <i class="bi bi-heart-pulse"></i>
+          </div>
           <h4>Healthy Lifestyle</h4>
-          <p>Make fitness a part of your everyday life.</p>
+          <p>
+            Build healthy habits and make fitness
+            a part of your everyday life.
+          </p>
+          <span class="feature-number">03</span>
         </div>
       </div>
 
@@ -126,32 +203,47 @@
   </div>
 </section>
 
-<!-- CALL TO ACTION -->
-<section class="cta-section text-center py-5">
-  <div class="container py-5">
-    <h2>READY TO LEVEL UP?</h2>
+<section class="cta-section text-center">
+  <div class="container">
+    <p class="section-subtitle">YOUR NEXT CHAPTER STARTS NOW</p>
+    <h2>READY TO <span>LEVEL UP?</span></h2>
     <p>Find everything you need for your next workout.</p>
 
     <a routerLink="/products" class="btn btn-orange btn-lg mt-3">
-      Start Shopping
+      Start Shopping <i class="bi bi-arrow-right ms-2"></i>
     </a>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer py-4">
-  <div class="container text-center">
-    <h3>FIT<span>ZONE</span></h3>
-    <p>Train Hard. Stay Strong. Never Give Up.</p>
-    <div class="footer-links">
-      <a routerLink="/home">Home</a>
-      <a routerLink="/products">Products</a>
-      <a routerLink="/about">About</a>
-      <a routerLink="/auth">Admin Registration</a>
+<footer class="footer">
+  <div class="container">
+
+    <div class="row align-items-center gy-4">
+
+      <div class="col-lg-5 text-center text-lg-start">
+        <h3>FIT<span>ZONE</span></h3>
+        <p class="footer-slogan">
+          Train Hard. Stay Strong. Never Give Up.
+        </p>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="footer-links">
+          <a routerLink="/home">Home</a>
+          <a routerLink="/products">Products</a>
+          <a routerLink="/about">About</a>
+          <a routerLink="/auth">Administrator Area</a>
+        </div>
+      </div>
+
     </div>
+
     <hr>
-    <small>© 2026 FitZone by Elaa. All rights reserved.</small>
+
+    <div class="footer-bottom">
+      <small>© 2026 FitZone by Elaa. All rights reserved.</small>
+      <a routerLink="/home">Back to top <i class="bi bi-arrow-up"></i></a>
+    </div>
+
   </div>
 </footer>
-
-

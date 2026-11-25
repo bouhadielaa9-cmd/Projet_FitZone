@@ -24,9 +24,7 @@ export class ProductDetail implements OnInit {
       this.productservice.getproduitbyid(id).subscribe({
         next: (p) => {
           this.product.set(p);
-          console.log(this.product());
         },
-        error: (err) => console.log(err)
       });
     }
   }

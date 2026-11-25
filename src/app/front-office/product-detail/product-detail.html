@@ -1,3 +1,4 @@
+
 <div class="detail-section">
   <div class="container">
 
@@ -8,7 +9,7 @@
 
     @if (product(); as p) {
 
-      <div class="row g-5 align-items-center">
+      <div class="row g-5 align-items-center product-detail">
 
         <div class="col-md-6">
           <div class="detail-image">
@@ -17,67 +18,118 @@
         </div>
 
         <div class="col-md-6">
+          <div class="product-info">
 
-          <span class="category">{{ p.categorie }}</span>
+            <span class="category">
+              <i class="bi bi-tag-fill"></i>
+              {{ p.categorie }}
+            </span>
 
-          <h1>{{ p.nom }}</h1>
+            <h1>{{ p.nom }}</h1>
 
-          <h2 class="price">{{ p.prix }} DT</h2>
+            <h2 class="price">{{ p.prix }} DT</h2>
 
-          <p class="description">
-            {{ p.description }}
-          </p>
+            <p class="description">
+              {{ p.description }}
+            </p>
 
-          <p>
-            <strong>Availability:</strong>
+            <div class="product-details">
 
-            @if (p.enStock) {
-              <span class="available">In Stock</span>
-            } @else {
-              <span class="unavailable">Out of Stock</span>
-            }
-          </p>
+              <p>
+                <strong><i class="bi bi-box-seam"></i> Availability:</strong>
 
-          <p><strong>Date added:</strong> {{ p.dateAjout | date:'dd/MM/yyyy' }}</p>
+                @if (p.enStock) {
+                  <span class="available">
+                    <i class="bi bi-check-circle-fill"></i>
+                    In Stock
+                  </span>
+                } @else {
+                  <span class="unavailable">
+                    <i class="bi bi-x-circle-fill"></i>
+                    Out of Stock
+                  </span>
+                }
+              </p>
 
-          @if (p.tailles?.length) {
-            <p><strong>Sizes:</strong> {{ p.tailles?.join(', ') }}</p>
-          }
+              <p>
+                <strong><i class="bi bi-calendar3"></i> Date added:</strong>
+                {{ p.dateAjout | date:'dd/MM/yyyy' }}
+              </p>
 
-          @if (p.couleurs?.length) {
-            <p><strong>Colors:</strong> {{ p.couleurs?.join(', ') }}</p>
-          }
+              @if (p.tailles?.length) {
+                <p>
+                  <strong><i class="bi bi-rulers"></i> Sizes:</strong>
+                  {{ p.tailles?.join(', ') }}
+                </p>
+              }
 
-          @if (p.poids) {
-            <p><strong>Weight:</strong> {{ p.poids }} kg</p>
-          }
+              @if (p.couleurs?.length) {
+                <p>
+                  <strong><i class="bi bi-palette"></i> Colors:</strong>
+                  {{ p.couleurs?.join(', ') }}
+                </p>
+              }
 
+              @if (p.poids) {
+                <p>
+                  <strong><i class="bi bi-speedometer2"></i> Weight:</strong>
+                  {{ p.poids }} kg
+                </p>
+              }
+
+            </div>
+          </div>
         </div>
       </div>
 
+    
       <div class="comments-section">
-        <h2>Customer Reviews</h2>
+
+        <div class="section-heading">
+          <span class="section-subtitle">WHAT CUSTOMERS SAY</span>
+          <h2>Customer Reviews</h2>
+          <div class="heading-line"></div>
+        </div>
 
         @for (c of p.commentaires; track c.id) {
           <div class="comment-card">
-            <h5>{{ c.nom }}</h5>
 
-            <p class="rating">
-              {{ c.note }} / 5
-              <i class="bi bi-star-fill"></i>
-            </p>
+            <div class="comment-header">
+              <div class="reviewer">
+                <div class="reviewer-icon">
+                  <i class="bi bi-person-fill"></i>
+                </div>
+                <h5>{{ c.nom }}</h5>
+              </div>
 
-            <p>{{ c.message }}</p>
-            <small>{{ c.date }}</small>
+              <p class="rating">
+                {{ c.note }} / 5
+                <i class="bi bi-star-fill"></i>
+              </p>
+            </div>
+
+            <p class="comment-message">{{ c.message }}</p>
+
+            <small>
+              <i class="bi bi-calendar3"></i>
+              {{ c.date }}
+            </small>
+
           </div>
         } @empty {
-          <p>No comments yet.</p>
+          <div class="no-comments">
+            <i class="bi bi-chat-square-text"></i>
+            <p>No comments yet.</p>
+          </div>
         }
 
       </div>
 
     } @else {
-      <p>Loading product...</p>
+      <div class="loading-state">
+        <i class="bi bi-hourglass-split"></i>
+        <p>Loading product...</p>
+      </div>
     }
 
   </div>

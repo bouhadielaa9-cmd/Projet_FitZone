@@ -12,7 +12,6 @@ import { Product } from '../../services/product';
 export class ProductItem {
   product = input.required<Produit>();
 private productService = inject(Product);
-
 changerFavori() {
   this.productService.changerFavori(this.product()).subscribe();
 }

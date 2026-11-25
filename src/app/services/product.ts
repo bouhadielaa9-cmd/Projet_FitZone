@@ -43,7 +43,6 @@ supprimeproduit(p: Produit) {
       )
     )
    }
-
 restaurerproduit(p: Produit) {
   return this._http.put(
     `${URL}/${p.id}`,
@@ -54,9 +53,9 @@ supprimerDefinitivement(id: string) {
   return this._http.delete(`${URL}/${id}`);
 }
 changerFavori(p: Produit) {
-  return this._http.patch<Produit>(
+  return this._http.put<Produit>(
     `${URL}/${p.id}`,
-    { favori: !p.favori }
+    { ...p, favori: !p.favori }
   ).pipe(
     tap(produitModifie => {
       this._products.update(liste =>

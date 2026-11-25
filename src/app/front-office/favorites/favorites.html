@@ -1,43 +1,81 @@
-<section class="container py-5">
 
-  <h2 class="text-center mb-4">My Favorites</h2>
-<section class="container py-5">
+<section class="favorites-page">
 
-  <div class="d-flex justify-content-between mb-4">
+  <div class="container py-5">
 
-    <a routerLink="/home" class="btn btn-outline-success">
-      <i class="bi bi-house"></i>
-      Back to Home
-    </a>
+    <div class="favorites-nav mb-5">
+      <a routerLink="/home" class="nav-btn">
+        <i class="bi bi-house"></i>
+        <span>Home</span>
+      </a>
 
-    <a routerLink="/products" class="btn btn-outline-success">
-      <i class="bi bi-arrow-left"></i>
-      Back to Products
-    </a>
-  </div>
+      <a routerLink="/products" class="nav-btn">
+        <i class="bi bi-arrow-left"></i>
+        <span>Continue Shopping</span>
+      </a>
+    </div>
 
-  <h2 class="text-center mb-4">My Favorites</h2>
+    <div class="favorites-header text-center">
+      <div class="heart-icon">
+        <i class="bi bi-heart-fill"></i>
+      </div>
 
-  <!-- Le reste de ton code -->
-</section>
-  @if (produitsFavoris().length > 0) {
+      <p class="section-subtitle">YOUR PERSONAL COLLECTION</p>
+      <h1>MY <span>FAVORITES</span></h1>
+      <p>Your favorite products, all in one place.</p>
 
-    <div class="row g-4">
-      @for (p of produitsFavoris(); track p.id) {
-        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-          <app-product-item [product]="p" />
+      @if (produitsFavoris().length > 0) {
+        <div class="favorites-count">
+          <i class="bi bi-heart-fill"></i>
+          {{ produitsFavoris().length }}
+          {{ produitsFavoris().length === 1 ? 'favorite product' : 'favorite products' }}
         </div>
       }
     </div>
 
-  } @else {
+    @if (produitsFavoris().length > 0) {
 
-    <div class="text-center py-5">
-      <i class="bi bi-heart fs-1"></i>
-      <h4 class="mt-3">No favorites yet</h4>
-      <p>Add products to your favorites to find them here.</p>
+      <div class="favorites-products">
+        <div class="row g-4">
+
+          @for (p of produitsFavoris(); track p.id) {
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+              <app-product-item [product]="p" />
+            </div>
+          }
+
+        </div>
+      </div>
+
+    } @else {
+
+      <div class="empty-favorites text-center">
+
+        <div class="empty-heart">
+          <i class="bi bi-heart"></i>
+        </div>
+
+        <h3>No favorites yet</h3>
+
+        <p>
+          You haven't added any products to your favorites.
+          Explore our collection and save the products you love!
+        </p>
+
+        <a routerLink="/products" class="explore-btn">
+          Explore Products
+          <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+
+      </div>
+
+    }
+
+    <div class="favorites-footer text-center">
+      <i class="bi bi-lightning-charge-fill"></i>
+      <span>YOUR FITNESS JOURNEY, YOUR FAVORITES.</span>
     </div>
 
-  }
+  </div>
 
 </section>

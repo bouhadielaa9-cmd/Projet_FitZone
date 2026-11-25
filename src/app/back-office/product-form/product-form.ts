@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Product } from '../../services/product';
 import { Produit } from '../../models/produit';
-import { form, FormField, FormRoot } from '@angular/forms/signals';
+import { form, FormField, FormRoot, required } from '@angular/forms/signals';
 import { Categorie } from '../../models/categorie';
 import { RouterLink } from '@angular/router';
 @Component({
@@ -37,10 +37,16 @@ export class ProductForm implements OnInit {
   couleurs: [],
   poids: 0,
   })
-  readonly produitForm=form(this.produitModel);
+  readonly produitForm = form(this.produitModel, path => {
+  required(path.nom, { message: "Product name is required" });
+  required(path.photo, { message: "Product photo is required" });
+  required(path.prix, { message: "Price is required" });
+  required(path.dateAjout, { message: "Date is required" });
+  required(path.categorie, { message: "Category is required" });
+  required(path.description, { message: "Description is required" });
+});
   categorie=Object.values(Categorie);
   onSubmit(){
-    console.log(this.produitModel())
     this.productservice.ajouterproduit(this.produitModel()).subscribe();
     this.resetForm();
   }

@@ -11,19 +11,29 @@ import { ChangePassword } from './back-office/change-password/change-password';
 import { Trash } from './back-office/trash/trash';
 
 export const routes: Routes = [
-    {path:"home",title:"accueil",component:Home},
-    { path:"products",title:"products",component:ProductList},
-{path:"products/:id", title:"Product Details", component:ProductDetail},
-    { path: 'about', title: 'About', component:About },
-   { path: 'favorites', title: 'My Favorites', component: Favorites },
-   {path:'productmanagement',title:'management',component:ProductManagement},
-   {path:'productform',title:'formulairepeoduit',component:ProductForm},
-   {path:'auth',title:'athentification',component:Login},
-   {path: 'changepassword',title:'changepassword',component: ChangePassword},
-   {
-  path: 'trash',
-  component: Trash
-},
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    { path: '**', redirectTo: 'home' }
+
+  // Front Office
+  { path: 'home', title: 'Home', component: Home },
+  { path: 'products', title: 'Products', component: ProductList },
+  { path: 'products/:id', title: 'Product Details', component: ProductDetail },
+  { path: 'about', title: 'About', component: About },
+  { path: 'favorites', title: 'My Favorites', component: Favorites },
+
+  // Login
+  { path: 'auth', title: 'Authentication', component: Login },
+
+  // Back Office
+  {
+    path: 'admin',
+    children: [
+      { path: '', redirectTo: 'productmanagement', pathMatch: 'full' },
+      { path: 'productmanagement', title: 'Management', component: ProductManagement },
+      { path: 'productform', title: 'Add Product', component: ProductForm },
+      { path: 'changepassword', title: 'Change Password', component: ChangePassword },
+      { path: 'trash', title: 'Trash', component: Trash }
+    ]
+  },
+
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '**', redirectTo: 'home' }
 ];

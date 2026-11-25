@@ -1,7 +1,7 @@
 import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { Product } from '../../services/product';
 import { Produit } from '../../models/produit';
-import { form, FormField, FormRoot } from '@angular/forms/signals';
+import { form, FormField, FormRoot, required } from '@angular/forms/signals';
 import { Categorie } from '../../models/categorie';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -38,7 +38,14 @@ onsuprrime(p: Produit) {
   couleurs: [],
   poids: 0,
   })
-  readonly produitForm=form(this.produitModel);
+readonly produitForm = form(this.produitModel, path => {
+  required(path.nom, { message: 'Product name is required' });
+  required(path.photo, { message: 'Product photo is required' });
+  required(path.prix, { message: 'Product price is required' });
+  required(path.dateAjout, { message: 'Date is required' });
+  required(path.categorie, { message: 'Category is required' });
+  required(path.description, { message: 'Description is required' });
+});
 mode=signal<boolean>(false);
  modifierproduit(p: Produit) {
   this.produitModel.set({...p});

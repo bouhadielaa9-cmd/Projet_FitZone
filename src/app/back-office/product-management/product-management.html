@@ -1,127 +1,196 @@
-<div class="mb-4">
 
-  <div class="d-flex justify-content-between align-items-center mb-3">
-    <label class="form-label fw-bold">Recherche par nom</label>
+<div class="management-page">
+  <div class="management-toolbar mb-4">
 
-    <div class="d-flex gap-2">
-      <a routerLink="/" class="btn btn-outline-dark">
-        <i class="bi bi-house"></i>
-        Home
-      </a>
-<a routerLink="/trash" class="nav-link">
-  <i class="bi bi-trash"></i>
-  Corbeille
-</a>
-<a routerLink="/productform" class="btn btn-outline-success">
-  <i class="bi bi-plus-circle"></i>
-  Ajouter produit
-</a>
-      <a routerLink="/changepassword" class="btn btn-outline-warning">
-        <i class="bi bi-key"></i>
-        Changer le mot de passe
-      </a>
-    </div>
-  </div> <!-- ici tu fermes le d-flex -->
+    <div class="toolbar-header">
+      <label for="searchname" class="form-label fw-bold">
+        <i class="bi bi-search me-2"></i>
+        Search by name
+      </label>
 
-  <input
-    type="text"
-    class="form-control"
-    name="searchname"
-    placeholder="Enter product name..."
-    [ngModel]="searchname()"
-    (ngModelChange)="searchname.set($event)"
-  >
-</div>
-@for (p of filtrerproduit(); track p.id) {
-  <div class="product-card">
+      <div class="toolbar-actions">
 
-  <div class="product-image">
-    <img [src]="p.photo" [alt]="p.nom">
-  </div>
+        <a routerLink="/home" class="btn btn-outline-light">
+          <i class="bi bi-house me-1"></i>
+          Home
+        </a>
 
-  <div class="product-info">
-    <span class="product-category">{{ p.categorie }}</span>
+        <a routerLink="/admin/trash" class="btn btn-outline-danger">
+          <i class="bi bi-trash me-1"></i>
+          Trash
+        </a>
 
-    <h3>{{ p.nom }}</h3>
+        <a routerLink="/admin/productform" class="btn btn-add">
+          <i class="bi bi-plus-circle me-1"></i>
+          Add Product
+        </a>
 
-    <p class="product-description">
-      {{ p.description }}
-    </p>
+        <a routerLink="/admin/changepassword" class="btn btn-outline-warning">
+          <i class="bi bi-key me-1"></i>
+          Change Password
+        </a>
 
-    <div class="product-bottom">
-      <span class="product-price">{{ p.prix }} DT</span>
-
-      <div class="product-actions">
-        <button class="btn-edit" (click)="modifierproduit(p)">
-          <i class="bi bi-pencil-square"></i>
-          Edit
-        </button>
-
-        <button class="btn-delete" (click)="onsuprrime(p)">
-          <i class="bi bi-trash3"></i>
-          Delete
-        </button>
       </div>
     </div>
+
+    <div class="search-wrapper"
+         [class.search-active]="searchname().length > 0">
+      <i class="bi bi-search search-icon"></i>
+
+      <input
+        id="searchname"
+        type="text"
+        class="form-control"
+        name="searchname"
+        placeholder="Enter product name..."
+        [ngModel]="searchname()"
+        (ngModelChange)="searchname.set($event)"
+      >
+    </div>
+
   </div>
-    @if (mode()) {
-      <form [formRoot]="produitForm" (submit)="onSubmit()">
-        <!-- Nom -->
-        <div class="mb-3">
-          <label class="form-label">Product name</label>
-          <input type="text" class="form-control"
-            [formField]="produitForm.nom">
+  @for (p of filtrerproduit(); track p.id) {
+
+    <div class="product-card" [class.editing]="mode()">
+
+      <div class="product-image">
+        <img [src]="p.photo" [alt]="p.nom">
+      </div>
+
+      <div class="product-info">
+
+        <span class="product-category">
+          {{ p.categorie }}
+        </span>
+
+        <h3>{{ p.nom }}</h3>
+
+        <p class="product-description">
+          {{ p.description }}
+        </p>
+
+        <div class="product-bottom">
+
+          <span class="product-price">
+            {{ p.prix }} DT
+          </span>
+
+          <div class="product-actions">
+
+            <button
+              type="button"
+              class="btn-edit"
+              (click)="modifierproduit(p)">
+              <i class="bi bi-pencil-square me-1"></i>
+              Edit
+            </button>
+
+            <button
+              type="button"
+              class="btn-delete"
+              (click)="onsuprrime(p)">
+              <i class="bi bi-trash3 me-1"></i>
+              Delete
+            </button>
+
+          </div>
         </div>
+      </div>
+      @if (mode()) {
 
-        <!-- Prix -->
-        <div class="mb-3">
-          <label class="form-label">Price</label>
-          <input type="number" class="form-control"
-            [formField]="produitForm.prix">
+        <div class="edit-form-container">
+
+          <div class="edit-form-header">
+            <div>
+              <span class="edit-subtitle">PRODUCT MANAGEMENT</span>
+              <h4>
+                <i class="bi bi-pencil-square me-2"></i>
+                Edit product
+              </h4>
+            </div>
+          </div>
+
+          <form [formRoot]="produitForm" (submit)="onSubmit()">
+
+            <div class="row g-3">
+
+              <div class="col-md-6">
+                <label class="form-label">Product name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [formField]="produitForm.nom">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Price (DT)</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  [formField]="produitForm.prix">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Date added</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  [formField]="produitForm.dateAjout">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Photo URL</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [formField]="produitForm.photo">
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Category</label>
+                <select
+                  class="form-select"
+                  [formField]="produitForm.categorie">
+                  @for (c of categorie; track $index) {
+                    <option [value]="c">{{ c }}</option>
+                  }
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label class="form-label">Description</label>
+                <textarea
+                  class="form-control"
+                  rows="4"
+                  [formField]="produitForm.description">
+                </textarea>
+              </div>
+
+            </div>
+
+            <div class="form-actions">
+
+              <button type="submit" class="btn-save">
+                <i class="bi bi-check-circle me-1"></i>
+                Save changes
+              </button>
+
+              <button
+                type="button"
+                class="btn-cancel"
+                (click)="mode.set(false)">
+                <i class="bi bi-x-circle me-1"></i>
+                Cancel
+              </button>
+
+            </div>
+
+          </form>
         </div>
+      }
 
-        <!-- Date -->
-        <div class="mb-3">
-          <label class="form-label">Date added</label>
-          <input type="date" class="form-control"
-            [formField]="produitForm.dateAjout">
-        </div>
+    </div>
 
-        <!-- Photo -->
-        <div class="mb-3">
-          <label class="form-label">Photo URL</label>
-          <input type="text" class="form-control"
-            [formField]="produitForm.photo">
-        </div>
+  }
 
-        <!-- Category -->
-        <div class="mb-3">
-          <label class="form-label">Category</label>
-          <select class="form-select"
-            [formField]="produitForm.categorie">
-            @for (c of categorie; track $index) {
-              <option [value]="c">{{c}}</option>
-            }
-          </select>
-        </div>
-
-        <!-- Description -->
-        <div class="mb-3">
-          <label class="form-label">Description</label>
-          <textarea class="form-control"
-            [formField]="produitForm.description"></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-orange">
-          Save changes
-        </button>
-
-        <button type="button" class="btn btn-secondary"
-          (click)="mode.set(false)">
-          Cancel
-        </button>
-
-      </form>
-    }
-  </div>
-}
+</div>

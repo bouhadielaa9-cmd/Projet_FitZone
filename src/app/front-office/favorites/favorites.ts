@@ -20,7 +20,6 @@ export class Favorites implements OnInit {
       p.favori === true && p.deleted !== true
     )
   );
-
   ngOnInit(): void {
     this.productService.getproduit().subscribe();
   }

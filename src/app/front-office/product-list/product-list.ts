@@ -20,13 +20,11 @@ filteredProducts = computed(() => {
   const priceValue=this.maxPrice();
   return this.products().filter(p =>
     p.categorie.toLowerCase().includes(categoryValue) &&
-    (priceValue === null || p.prix <= priceValue)&& p.deleted===false
+    (priceValue === null || p.prix <= priceValue)&& p.deleted!==true
   );
 });
   ngOnInit(): void {
     this.productsservice.getproduit().subscribe();
   }
-  updateMaxPrice(value: string): void {
-  this.maxPrice.set(value === '' ? null : Number(value));
-}
+ 
 }

@@ -36,7 +36,8 @@
         "Noir",
         "Rose",
         "Gris"
-      ]
+      ],
+      "favori": true
     },
     {
       "id": "2",
@@ -73,7 +74,8 @@
         "Noir",
         "Blanc",
         "Rose"
-      ]
+      ],
+      "favori": false
     },
     {
       "id": "3",
@@ -103,7 +105,8 @@
       "couleurs": [
         "Blanc",
         "Noir"
-      ]
+      ],
+      "favori": true
     },
     {
       "id": "4",
@@ -124,7 +127,8 @@
           "date": "2026-11-04"
         }
       ],
-      "poids": 5
+      "poids": 5,
+      "favori": false
     },
     {
       "id": "5",
@@ -187,7 +191,8 @@
           "date": "2026-11-06"
         }
       ],
-      "poids": 1
+      "poids": 1,
+      "favori": true
     },
     {
       "id": "8",

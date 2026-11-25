@@ -1,53 +1,226 @@
 
+:host {
+  --orange: #ff9f1c;
+  --dark: #101010;
+  --card: #1b1b1b;
+  --muted: #aaa;
+
+  display: block;
+  min-height: 100vh;
+  background: var(--dark);
+  color: white;
+}
+
+/* PAGE */
 .about-page {
-  padding: 60px 8%;
-  background: #f7f8f5;
+  padding-top: 105px;
+  padding-bottom: 60px;
   min-height: 100vh;
 }
 
+/* BACK BUTTON */
+.back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--orange);
+  border: 1px solid var(--orange);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.back-home:hover {
+  background: var(--orange);
+  color: #111;
+  transform: translateX(-4px);
+}
+
+/* HEADER */
 .about-header {
+  position: relative;
   text-align: center;
-  background: #252a22;
-  color: white;
-  padding: 60px 20px;
-  border-radius: 15px;
-  margin-bottom: 40px;
+  padding: 75px 20px;
+  margin-top: 30px;
+  margin-bottom: 65px;
+  background:
+    linear-gradient(135deg, #202020, #111);
+  border-top: 1px solid #333;
+  border-bottom: 2px solid var(--orange);
 }
 
-.about-header h1 {
-  color: #91ad45;
-  font-size: 40px;
-  font-weight: bold;
-}
-
-.about-content {
-  max-width: 900px;
-  margin: auto;
-}
-
-.about-section {
-  background: white;
-  padding: 25px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.05);
-}
-
-.about-section h2 {
-  color: #91ad45;
+.section-subtitle {
+  color: var(--orange);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 4px;
   margin-bottom: 15px;
 }
 
+.about-header h1 {
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.about-header h1 span {
+  color: var(--orange);
+}
+
+.header-description {
+  color: #aaa;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+/* CONTENT */
+.about-content {
+  max-width: 1100px;
+}
+
+/* CARDS */
+.about-section {
+  position: relative;
+  height: 100%;
+  min-height: 260px;
+  background: var(--card);
+  padding: 35px;
+  border: 1px solid #303030;
+  border-radius: 10px;
+  border-bottom: 3px solid var(--orange);
+  transition: 0.35s ease;
+  overflow: hidden;
+}
+
+.about-section:hover {
+  transform: translateY(-7px);
+  border-color: var(--orange);
+  background: #222;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ICONS */
+.section-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 159, 28, 0.1);
+  border: 1px solid rgba(255, 159, 28, 0.3);
+  border-radius: 8px;
+  margin-bottom: 22px;
+}
+
+.section-icon i {
+  color: var(--orange);
+  font-size: 28px;
+}
+
+/* TEXT */
+.about-section h2 {
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
 .about-section p {
-  color: #555;
-  line-height: 1.8;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
 }
 
+/* AUTHOR */
 .author h3 {
-  color: #252a22;
+  color: var(--orange);
+  font-size: 25px;
+  font-weight: 800;
+  margin-bottom: 5px;
 }
 
-.about-section ul {
-  line-height: 2;
-  color: #555;
+.author .author-role {
+  color: white;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.author-badge {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 7px 12px;
+  background: rgba(255, 159, 28, 0.1);
+  color: var(--orange);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* CATEGORIES */
+.categories ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.categories li {
+  color: #ccc;
+  margin-bottom: 13px;
+  font-size: 14px;
+}
+
+.categories li i {
+  color: var(--orange);
+  margin-right: 10px;
+}
+
+/* BOTTOM */
+.about-bottom {
+  margin-top: 65px;
+  padding: 50px 20px;
+  background: linear-gradient(135deg, #202020, #141414);
+  border: 1px solid #303030;
+  border-radius: 10px;
+}
+
+.about-bottom > i {
+  color: var(--orange);
+  font-size: 35px;
+}
+
+.about-bottom h2 {
+  font-size: clamp(24px, 4vw, 35px);
+  font-weight: 900;
+  margin: 15px 0;
+}
+
+.about-bottom p {
+  color: #999;
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .about-page {
+    padding-top: 90px;
+  }
+
+  .about-header {
+    padding: 55px 15px;
+    margin-bottom: 40px;
+  }
+
+  .about-section {
+    padding: 28px 22px;
+    min-height: auto;
+  }
+
+  .about-bottom {
+    margin-top: 40px;
+    padding: 40px 15px;
+  }
 }
