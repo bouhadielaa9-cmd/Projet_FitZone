@@ -21,9 +21,17 @@ export class Product {
 }
 
 supprimeproduit(p: Produit) {
-  return this._http.put(
+  return this._http.put<Produit>(
     `${URL}/${p.id}`,
     { ...p, deleted: true }
+  ).pipe(
+    tap(produitModifie => {
+      this._products.update(liste =>
+        liste.map(prod =>
+          prod.id === produitModifie.id ? produitModifie : prod
+        )
+      );
+    })
   );
 }
    ajouterproduit(p:Produit){
@@ -44,13 +52,27 @@ supprimeproduit(p: Produit) {
     )
    }
 restaurerproduit(p: Produit) {
-  return this._http.put(
+  return this._http.put<Produit>(
     `${URL}/${p.id}`,
     { ...p, deleted: false }
+  ).pipe(
+    tap(produitModifie => {
+      this._products.update(liste =>
+        liste.map(prod =>
+          prod.id === produitModifie.id ? produitModifie : prod
+        )
+      );
+    })
   );
 }
 supprimerDefinitivement(id: string) {
-  return this._http.delete(`${URL}/${id}`);
+  return this._http.delete(`${URL}/${id}`).pipe(
+    tap(() => {
+      this._products.update(liste =>
+        liste.filter(p => p.id !== id)
+      );
+    })
+  );
 }
 changerFavori(p: Produit) {
   return this._http.put<Produit>(

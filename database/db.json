@@ -4,7 +4,7 @@
       "id": "1",
       "nom": "Legging Sport Femme",
       "photo": "/images/gymwear.webp",
-      "prix": 89.9,
+      "prix": 36,
       "enStock": true,
       "deleted": false,
       "dateAjout": "2026-11-02",
@@ -37,7 +37,7 @@
         "Rose",
         "Gris"
       ],
-      "favori": false
+      "favori": true
     },
     {
       "id": "2",
@@ -260,13 +260,29 @@
         "Rose",
         "Blanc"
       ]
+    },
+    {
+      "id": "r6wQP478lg4",
+      "nom": "kartaba",
+      "photo": "/images/dumbbells.webp",
+      "prix": 12,
+      "enStock": true,
+      "deleted": false,
+      "favori": false,
+      "dateAjout": "0215-10-10",
+      "categorie": "Gym Accessories",
+      "description": "",
+      "commentaires": [],
+      "tailles": [],
+      "couleurs": [],
+      "poids": 0
     }
   ],
   "admins": [
     {
       "id": "1",
       "email": "bouhadielaa9@gmail.com",
-      "password": "elaa123"
+      "password": "elaa1234"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

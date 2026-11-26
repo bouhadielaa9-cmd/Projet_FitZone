@@ -26,7 +26,6 @@ export class Login implements OnInit {
   loginForm = form(this.loginModel, path => {
     required(path.email, { message: 'Email is required' });
     email(path.email, { message: 'Enter a valid email' });
-
     required(path.mdp, { message: 'Password is required' });
   });
   loginError=signal('');

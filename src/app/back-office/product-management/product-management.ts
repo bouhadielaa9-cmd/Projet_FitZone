@@ -18,9 +18,7 @@ export class ProductManagement implements OnInit {
    this.productservice.getproduit().subscribe();
   }
 onsuprrime(p: Produit) {
-  this.productservice.supprimeproduit(p).subscribe(() => {
-    this.productservice.getproduit().subscribe();
-  });
+  this.productservice.supprimeproduit(p).subscribe();
 }
    readonly produitModel=signal<Produit>({
   id:"",
@@ -55,14 +53,12 @@ onSubmit() {
   this.productservice.modifierproduit(this.produitModel()).subscribe({
     next: () => {
       this.mode.set(false);
-      this.productservice.getproduit().subscribe();
     }
   });
 }
 searchname=signal("");
 filtrerproduit = computed(() => {
   const searchnamevalue = this.searchname().toLowerCase();
-
   return this.productservice.products().filter(p => {
     return p.deleted === false &&
            p.nom.toLowerCase().includes(searchnamevalue);

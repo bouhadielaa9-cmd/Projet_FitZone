@@ -27,8 +27,6 @@ export class Trash implements OnInit {
     });
   }
   supprimerDefinitivement(p: Produit) {
-    this.productservice.supprimerDefinitivement(p.id).subscribe(() => {
-      this.productservice.getproduit().subscribe();
-    });
+    this.productservice.supprimerDefinitivement(p.id).subscribe()
   }
 }
