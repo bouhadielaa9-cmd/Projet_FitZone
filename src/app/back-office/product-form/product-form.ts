@@ -74,4 +74,10 @@ export class ProductForm implements OnInit {
       tailles: [...produit.tailles??[], '']
     }));
   }
+  addcolors(){
+  this.produitModel.update(produit=>({
+    ...produit,
+    couleurs: [...produit.couleurs??[], '']
+  }));
+}
 }
